@@ -39,3 +39,31 @@
                 Load the .env file using dotenv.config().
                 Use Mongoose's mongoose.connect() method to establish a connection to the MongoDB server.
                 Add error handling and manage the connection lifecycle properly.
+    Learning Date : nov 7 
+               Dependencies
+               The following dependencies are
+
+              express: Web framework for Node.js used to create the server and define routes.
+              cors: Middleware to enable Cross-Origin Resource Sharing (CORS) and configure it to allow cross-origin requests.
+              cookie-parser: Middleware to parse cookies attached to incoming requests.
+              
+
+             Middleware Setup
+             CORS (Cross-Origin Resource Sharing):
+
+            The application is configured to allow cross-origin requests by using the cors middleware.
+            The CORS options are configured with:
+            origin: process.env.CORS_ORIGIN: The origin(s) allowed to make requests to the server. The value is dynamically set via an environment variable (CORS_ORIGIN).
+
+            credentials: true: This allows cookies to be sent and received with cross-origin requests, enabling features like sessions and authentication.
+
+            Static File Serving: The app uses the express.static middleware to serve static files from the public directory. Any file within the public folder will be accessible directly via HTTP requests.
+            Cookie Parsing:  cookie-parser middleware is applied, enabling the app to parse cookies in incoming requests and make them accessible via req.cookies.
+  middleware 
+          -> Middleware is a function that sits in between when a request is made and when the response is sent. It lets you do things like logging requests, checking if a user is logged in, or handling errors.
+           Execute any code.
+           Make changes to the request and the response objects.
+           End the request-response cycle.
+           Call the next middleware function in the stack.
+          ![Screenshot from 2024-11-07 20-15-59](https://github.com/user-attachments/assets/d56d8f64-1cb8-4359-a9e1-bf6ab0918847)
+
