@@ -14,4 +14,12 @@ import connectionDb from './db/index.js'
 dotenv.config({
     path: './env'
 })
-connectionDb();
+connectionDb()
+.then(() =>{
+  app.listen(process.env.PORT || 8000, () =>{
+    console.info(`server is runing port : ${PORT}`)
+  } )
+})
+.catch((err) =>{
+    console.info('Db connection Failed !', err);
+})
