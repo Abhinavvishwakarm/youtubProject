@@ -66,4 +66,32 @@
            End the request-response cycle.
            Call the next middleware function in the stack.
           ![Screenshot from 2024-11-07 20-15-59](https://github.com/user-attachments/assets/d56d8f64-1cb8-4359-a9e1-bf6ab0918847)
+          
+ Cloudinary File Upload - Documentation
+           Overview
+           This module is designed to handle the upload of local files to Cloudinary using Cloudinary's Node.js SDK. The uploadToCloudinary function uploads a file to Cloudinary and returns the file's URL or null in case of an error. 
+           Additionally, it ensures that the local file is deleted after the upload process, whether the upload succeeds or fails.
+           
+           Dependencies
+                     cloudinary: Official Node.js SDK for Cloudinary.
+                     fs: Node.js File System module for handling file operations.
+                     
+           Cloudinary Configuration:
+                     The Cloudinary configuration uses environment variables for cloud_name, api_key, and api_secret to authenticate requests.
+                     The cloudinary.config() method is called with these values to initialize the connection with Cloudinary's API.
+                      cloudinary.config({
+                               cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+                               api_key: process.env.CLOUDINARY_API_KEY,
+                               api_secret: process.env.CLOUDINARY_API_SECRET
+                               });
+          Uploading the File:
+                     The cloudinary.uploader.upload() method is used to upload the file. The resource_type: "auto" option allows Cloudinary to auto-detect the type of the file (image, video, etc.).
+
+          Cleaning Up Local Files:
+                     Whether the upload succeeds or fails, the local file is removed using fs.promises.unlink().
+                     This is an asynchronous operation, ensuring that the event loop is not blocked while cleaning up temporary files.
+                     await fs.promises.unlink(localFilePath);
+
+
+
 
