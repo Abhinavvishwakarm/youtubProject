@@ -14,8 +14,10 @@ import fs from 'fs'
             const response = await cloudianry.uploader.upload(localFilePath, {
                 resource_type: "auto",
             })
-            console.info('file is uploaded on cloudaniary ', response.url)
+            console.info('file is uploaded on cloudaniary ', response.url);
+            return response;
         } catch (error) {
-            
+            fs.unlinkSync(localFilePath); // remove the  locally saved tempary file on clouds //
+            return null;
         }
     }

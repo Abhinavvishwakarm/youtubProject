@@ -10,14 +10,16 @@
 // })()
 import dotenv from 'dotenv'
 import connectionDb from './db/index.js'
+import  express  from 'express'
 
 dotenv.config({
     path: './env'
 })
+const app = express()
 connectionDb()
 .then(() =>{
   app.listen(process.env.PORT || 8000, () =>{
-    console.info(`server is runing port : ${PORT}`)
+    console.info(`server is runing port : ${process.env.PORT}`)
   } )
 })
 .catch((err) =>{
