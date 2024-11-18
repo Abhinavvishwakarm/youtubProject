@@ -94,4 +94,30 @@
 
 
 
+registerUser Controller
+                    Notes 
+                    Input Validation:
+                    Purpose: Ensure that all required fields are present in the request body.
+                    The function destructures funllName, email, userName, and password from the request body (req.body).
+                    The code checks if any of these fields are empty or contain only whitespace. If any of these fields are invalid, an error is thrown using the ApiErrors class with a status of 400 (Bad Request).
+                    Validation Error Message: "All fields are required."
 
+                    Check for Existing User:
+                    Purpose: Prevent duplicate users from registering.
+                    The function checks if a user with the same email or userName already exists in the database. If a user is found with either of these values, an error is thrown.
+                    Error Message: "User already exists."
+
+                    User Creation in the Database:
+                    Purpose: Create a new user record in the MongoDB database.
+                    The function constructs a new user object with the following fields:
+                    fullName: The full name of the user.
+                    avatar: URL of the uploaded avatar image.
+                    coverImage: URL of the uploaded cover image (if available).
+                    email: The user's email address.
+                    password: The user's password (presumably hashed before this step, though that logic is not shown here).
+                    userName: The user's username (converted to lowercase to ensure uniqueness).
+                    The user record is created in the database with User.create().
+                    Note: Password is not included in the response (it is omitted during the user query to return only relevant user data).
+
+                    uploadOnCloudnairy:  
+                                    A helper function (presumably defined elsewhere) that uploads image files to Cloudinary and returns the file URL.
