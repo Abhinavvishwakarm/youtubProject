@@ -121,3 +121,22 @@ registerUser Controller
 
                     uploadOnCloudnairy:  
                                     A helper function (presumably defined elsewhere) that uploads image files to Cloudinary and returns the file URL.
+                                    
+ Aggregation Pipeline:
+                    An Aggregation Pipeline is a framework in MongoDB used to process and transform data in a series of stages, resulting in a computed output. It allows complex queries, transformations, and data manipulations, such as 
+                    filtering, grouping, sorting, and reshaping data. Aggregation pipelines are often used to analyze data and generate reports in a flexible and efficient manner.
+
+                    Key Concepts in MongoDB Aggregation Pipeline
+                    Pipeline: The aggregation framework processes data in a sequence of stages, where each stage transforms the data in some way. The stages are connected to form a pipeline, and the output of one stage becomes the input 
+                    for the next.
+
+                    Stages: Each stage performs a specific operation on the documents in the collection. Common stages include:
+
+                    $match: Filters the documents to pass only those that match the specified conditions.
+                    $group: Groups documents by a specified identifier and performs aggregate operations, like sum, average, count, etc.
+                    $project: Reshapes documents by including or excluding fields or computing new fields.
+                    $sort: Sorts documents in ascending or descending order based on specified fields.
+                    $limit: Limits the number of documents passed to the next stage.
+                    $skip: Skips the specified number of documents before passing the remaining documents.
+                    $unwind: Deconstructs an array field into separate documents for each element of the array.
+                    $lookup: Performs a left outer join with another collection to combine data from multiple collections.
